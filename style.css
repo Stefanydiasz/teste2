@@ -1,0 +1,267 @@
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    font-family: 'Nunito Sans', sans-serif;
+}
+
+a {
+    font-family: 'Nunito sans';
+    text-decoration: none;
+}
+
+
+/*ESTILO CABEÇALHO*/
+
+.header {
+    background:#0097B2;
+    padding-inline: 16px;
+}
+
+.nav {
+    max-width: 1280px;
+    height: 80px;
+    margin-inline: auto;
+
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+
+.logo img {
+    width: 150px;
+}
+
+.nav-list {
+    display: flex;
+    gap: 32px;
+    list-style: none;
+}
+
+.nav-list a {
+    font-size: 20px;
+    color: #fff;
+    padding-block: 16px;
+}
+
+.inicio {
+    height: calc(100vh - 80px);
+    background: center / cover no-repeat url("./img/background.png");
+    text-align: center;
+    padding-top: 300px;
+    color: #ffffff;
+    font-size: 36px;
+
+}
+
+.hamburger {
+    display: none;
+    border: none;
+    background: none;
+    border-top: 3px solid #fff;
+    cursor: pointer;
+}
+
+.hamburger::after,
+.hamburger::before {
+    content: " ";
+    display: block;
+    width: 30px;
+    height: 3px;
+    background: #fff;
+    margin-top: 5px;
+    position: relative;
+    transition: 0.3s;
+}
+
+@media (max-width: 750px) {
+    .hamburger {
+    display: block;
+    z-index: 1;
+    }
+
+    .nav-list {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100vw;
+    height: 100vh;
+    background:#0097B2;
+    clip-path: circle(100px at 90% -15%);
+    transition: 1s ease-out;
+
+    flex-direction: column;
+    justify-content: space-around;
+    align-items: center;
+    gap: 0;
+
+    pointer-events: none;
+    }
+
+    .nav-list a {
+    font-size: 24px;
+    opacity: 0;
+    }
+
+    .nav-list li:nth-child(1) a {
+    transition: 0.5s 0.2s;
+    }
+
+    .nav-list li:nth-child(2) a {
+    transition: 0.5s 0.4s;
+    }
+
+    .nav-list li:nth-child(3) a {
+    transition: 0.5s 0.6s;
+    }
+
+    /* Estilos ativos */
+
+    .nav.active .nav-list {
+    clip-path: circle(1500px at 90% -15%);
+    pointer-events: all;
+    }
+
+    .nav.active .nav-list a {
+    opacity: 1;
+    }
+
+    .nav.active .hamburger {
+    position: fixed;
+    top: 26px;
+    right: 16px;
+    border-top-color: transparent;
+    }
+
+    .nav.active .hamburger::before {
+    transform: rotate(135deg);
+    }
+
+    .nav.active .hamburger::after {
+    transform: rotate(-135deg);
+    top: -7px;
+    }
+}
+/*FIM DO CABEÇALHO*/
+
+/*ESTILO SOBRE*/
+
+.sobre{
+    display: flex;
+    background-color:#FFEFFD;
+    padding: 80px 20% ;
+    margin: 0 auto;
+    align-items: center;
+    gap: 60px;
+}
+
+.sobre .texto-sobre h2{
+    font-size: 40px;
+    line-height: 40px;
+    margin-bottom: 30px;
+}
+.sobre .texto-sobre h2 span{
+    color:#0097B2;
+    display: block;
+}
+
+.sobre .texto-sobre p{
+    margin:  20px 0;
+    text-align: justify;
+    justify-content: center;
+}
+
+
+
+
+
+
+
+
+.imagem-sobre img{
+    width: 400px ;
+    border-radius: 200px;
+    
+}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+/*ESTILO DE ANIMAÇÃO*/
+
+.textoanimado{
+    font-size: 50px;
+    font-weight: 300;
+    }
+    
+    .textoanimado span{
+    position: relative;
+    }
+    
+    .textoanimado span::before{
+        content: " ";
+        color: #fc8fea;
+        animation: faces 20s infinite;
+    }
+    
+    .textoanimado span::after{
+        content: '';
+    position: absolute;
+    height: 100%;
+    border-left: 2px  solid #fc8fea;
+    right: 2px;
+    animation: cursor .8s infinite, escrita 20s steps(50) infinite;
+    width: calc(100%);
+    background-color: #7689D8;
+    }
+    
+    @keyframes escrita {
+        10%, 15%, 30%, 35%, 50%, 55%, 70%, 75%, 90%, 95%{
+            width: 0;
+        }
+        5%, 20%, 25%, 40%, 45%, 60%, 65%, 80%, 85%{
+            width: calc(100% ); ;
+        }
+    }
+    
+    @keyframes cursor{
+    0%{
+        border-left: 2px  solid#7689D8;
+    }
+    }
+    
+    @keyframes faces{
+        0%,20%{
+            content: "Comissária de bordo ✈️";
+        }
+        21%,40%{
+            content: "Gamer 🎮";
+        }
+        41%,60%{
+            content: "Mãe de pet 🐶";
+        }
+        61%,80%{
+            content: "Leitora 📖";
+        }
+        81%,100%{
+            content: "Artista 🧵";
+        }
+    }
